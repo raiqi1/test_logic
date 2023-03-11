@@ -51,26 +51,7 @@ function pembalikan(abjad) {
 
 
 /* ------------------------------------------------------ Nomer 3 -----------------------------------------------*/
-function printDigitValue(str) {
-    let hasil = "";
-    let angka = "";
-    for (let i = 0; i < str.length; i++) {
-      if (!isNaN(str[i])) { // jika karakter adalah angka
-        angka += str[i]; // tambahkan karakter angka ke variabel angka
-      } else { // jika karakter bukan angka
-        if (angka !== "") { // jika variabel angka tidak kosong
-          hasil += angka + "0".repeat(str.length - i) + "\n"; // tambahkan jumlah digit dengan angka 0 pada akhirnya ke output
-          angka = ""; // reset variabel angka
-        }
-      }
-    }
-    if (angka !== "") { // jika masih ada digit yang belum diproses
-      hasil += angka + "0".repeat(str.length - str.lastIndexOf(angka)) + "\n"; // tambahkan jumlah digit dengan angka 0 pada akhirnya ke output
-    }
-    console.log(hasil); // tampilkan output pada konsol
-  }
-  
-  printDigitValue("9.86-A5.321");
+// bingung kak
 
 
 /* ------------------------------------------------------ Nomer 4 -----------------------------------------------*/
