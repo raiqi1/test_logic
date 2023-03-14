@@ -1,3 +1,4 @@
+console.log(" -------------------Nomer 1-------------------------")
 function faktorisasi(num) {
   let hasil = 1;
   for (let i = num; i >= 1; i--) {
@@ -6,8 +7,8 @@ function faktorisasi(num) {
   return hasil;
 }
 
-console.log(faktorisasi(4)); // Output: 24
-console.log(faktorisasi(8)); // Output: 40320
+console.log("Outputnya : ",faktorisasi(4)); // Output: 24
+console.log("Outputnya : ",faktorisasi(8)); // Output: 40320
 
 // Buatlah fungsi sebagai berikut :
 // 	Apabila terdapat int = 4, maka outputnya 24 (prosesnya : 4*3*2*1)
@@ -30,13 +31,8 @@ maka loop pertama akan 1 x 8 => 8, 8x7 => 56, 56x6 => 336, 336x5 => 1680, 1680x4
  */
 
 
-/* ------------------------------------------------------ Nomer 2 ------------------------------------------------
-Buatlah fungsi untuk reverse sebuah string
-Apabila input = “abcde”, maka outputnya = “edcba”
-Dilarang menggunakan function reverse, buatlah logika sendiri
-
- */
-
+/* ------------------------------------------------------ Nomer 2 ----------------------------------------------*/
+console.log(" -------------------Nomer 2-------------------------")
 function pembalikan(abjad) {
     let huruf = '';
     for (let i = abjad.length - 1; i >= 0; i--) {
@@ -45,36 +41,42 @@ function pembalikan(abjad) {
     return huruf;
   }
   
-  console.log(pembalikan("abcde")); // Outputnya nanti akan menjadi  "edcba"
+  console.log("Outputnya : ",pembalikan("abcde")); // Outputnya nanti akan menjadi  "edcba"
  /* Loop for dimulai dengan menginisialisasi variabel i dengan nilai panjang string abjad dikurangi 1 (abjad.length - 1). Ini dilakukan agar loop dimulai pada indeks paling belakang pada string str. */
 
 
 
 /* ------------------------------------------------------ Nomer 3 -----------------------------------------------*/
+console.log(" -------------------Nomer 3-------------------------")
 function printDigitValue(str) {
-    let hasil = "";
-    let angka = "";
-    for (let i = 0; i < str.length; i++) {
-      if (!isNaN(str[i])) { // jika karakter adalah angka
-        angka += str[i]; // tambahkan karakter angka ke variabel angka
-      } else { // jika karakter bukan angka
-        if (angka !== "") { // jika variabel angka tidak kosong
-          hasil += angka + "0".repeat(str.length - i) + "\n"; // tambahkan jumlah digit dengan angka 0 pada akhirnya ke output
-          angka = ""; // reset variabel angka
-        }
-      }
+  let digits = str.replace(/[^0-9]/g, ''); // mengambil semua digit angka dari string
+  
+  // membuat array untuk menampung nilai posisi digit angka
+  let positions = [1000000, 100000, 10000, 1000, 100, 10, 1]; 
+  let result = '';
+  
+  for (let i = 0; i < positions.length; i++) {
+    let value = Math.floor(digits / positions[i]); // menghitung nilai digit pada posisi tertentu
+    
+    // menambahkan nilai ke string hasil
+    if (value > 0) {
+      result += value * positions[i] + ' ';
     }
-    if (angka !== "") { // jika masih ada digit yang belum diproses
-      hasil += angka + "0".repeat(str.length - str.lastIndexOf(angka)) + "\n"; // tambahkan jumlah digit dengan angka 0 pada akhirnya ke output
-    }
-    console.log(hasil); // tampilkan output pada konsol
+    
+    digits -= value * positions[i]; // mengurangi digit pada posisi tertentu dari digit utama
   }
   
-  printDigitValue("9.86-A5.321");
+  console.log("Outputnya : ",result.trim()); // menghilangkan spasi ekstra di akhir string hasil
+}
+
+// Contoh penggunaan
+printDigitValue('9.86-A5.321'); // output: 9865321 9000000 800000 60000 5000 300 20 1
+
+
 
 
 /* ------------------------------------------------------ Nomer 4 -----------------------------------------------*/
-
+console.log(" -------------------Nomer 4-------------------------")
 let a = 3;
 let b = 7;
 
@@ -87,8 +89,8 @@ console.log("b =", b); // outputnya adalah : b = 3
 
 
 /* ------------------------------------------------------ Nomer 5 -----------------------------------------------*/
-
-function numberToWords(num) {
+console.log(" -------------------Nomer 5-------------------------")
+function gantiAngka(num) {
     if (num < 1 || num > 100) {
       return "silahkan masukkan bilangan 1-100";
     }
@@ -113,15 +115,15 @@ function numberToWords(num) {
     }
   }
   
-console.log(numberToWords(4)); // hasilnya akan empat
-console.log(numberToWords(20)); // hasilnya akan dua puluh
-console.log(numberToWords(39)); // hasilnya akan tiga puluh sembilan
-console.log(numberToWords(104)); // hasilnya akan silahkan masukkan bilangan 1-100
+console.log(gantiAngka(4)); // hasilnya akan empat
+console.log(gantiAngka(20)); // hasilnya akan dua puluh
+console.log(gantiAngka(39)); // hasilnya akan tiga puluh sembilan
+console.log(gantiAngka(104)); // hasilnya akan silahkan masukkan bilangan 1-100
 
 
 
 /* ------------------------------------------------ Nomer 6 -------------------------------------------------- */
-
+console.log(" -------------------Nomer 6-------------------------")
 let data = [1, 4, 7, 9, 12];
 let low = 2;
 let high = 15;
@@ -133,4 +135,92 @@ for (let i = 0; i < data.length; i++) {
   }
 }
 
-console.log(hasilnya); // Output: [4, 7, 9, 12]
+console.log("Outputnya : ",hasilnya); // Output: [4, 7, 9, 12]
+
+/* ------------------------------------------------ Nomer 7 -------------------------------------------------- */
+console.log(" -------------------Nomer 7-------------------------")
+function filterRange(arr, low, high) {
+  let result = [];
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= low && arr[i] <= high) {
+      result.push(arr[i]);
+      count++;
+    }
+  }
+  console.log("Outputnya : ",result);
+  console.log(`Total angka: ${count}`);
+}
+
+const data1 = [1, 4, 7, 9, 12];
+const low1 = 2;
+const high1 = 15;
+
+filterRange(data1, low1, high1);
+
+/* ------------------------------------------------ Nomer 8 -------------------------------------------------- */
+console.log(" -------------------Nomer 8-------------------------")
+function cetakInput(n) {
+  let output = "";
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      output += "EduWork";
+    } else if (i % 3 === 0) {
+      output += "Edu";
+    } else if (i % 5 === 0) {
+      output += "Work";
+    } else {
+      output += i;
+    }
+    output += "\n"; // 
+  }
+  console.log("Outputnya : ",output);
+}
+
+cetakInput(15);
+
+/* ------------------------------------------------ Nomer 9 -------------------------------------------------- */
+console.log(" -------------------Nomer 9-------------------------")
+function rendahKeTinggi(arr) {
+  let low2 = arr[0];
+  let high2 = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < low2) {
+      low2 = arr[i];
+    } else if (arr[i] > high2) {
+      high2 = arr[i];
+    }
+  }
+  return { low2, high2 };
+}
+
+// contoh penggunaan
+const arr = [4, 2, 6, 88, 3, 11];
+const { low2, high2 } = rendahKeTinggi(arr);
+console.log(`low2: ${low2}, high2: ${high2}`);
+
+
+/* ------------------------------------------------ Nomer 10 -------------------------------------------------- */
+console.log(" -------------------Nomer 10-------------------------")
+function tahunKabisat(year) {
+  if (year % 4 === 0) {
+    if (year % 100 === 0) {
+      if (year % 400 === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  } else {
+    return false;
+  }
+}
+
+let year = 2024;
+if (tahunKabisat(year)) {
+  console.log(year + " adalah tahun kabisat");
+} else {
+  console.log(year + " bukan tahun kabisat");
+}
